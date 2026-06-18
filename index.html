@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>你是哪种认养人格？</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" id="intro">
+        <img class="hero-image" src="./assets/farm-adoption-hero-scene.png" alt="卡通质感的认养农场场景" />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <div class="brand-row">
+            <span class="brand-mark">禾</span>
+            <span>禾作计划人格小测</span>
+          </div>
+          <h1>你是哪种认养人格？</h1>
+          <p>
+            测一测你更适合“稳稳交付”的认养，还是“丰收盲盒”的认养；是天天云巡田，还是交给农场主放心长。
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startBtn" type="button">开始测评</button>
+            <button class="ghost-btn" id="previewBtn" type="button">先看人格类型</button>
+          </div>
+          <div class="share-card" aria-label="扫码打开认养人格测试">
+            <div class="qr-frame">
+              <img id="shareQr" alt="认养人格测试二维码" />
+            </div>
+            <div>
+              <strong>扫码一起玩</strong>
+              <span id="shareQrHint">手机扫一扫，邀请朋友测测 TA 的认养人格。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gender-section" id="genderGate" hidden>
+        <header class="quiz-header">
+          <div>
+            <p class="eyebrow">Character Card</p>
+            <h2>先选结果人物形象</h2>
+          </div>
+          <button class="secondary-btn" id="backIntroBtn" type="button">返回封面</button>
+        </header>
+
+        <div class="gender-intro">
+          <p>这一步只决定最后人格卡里的角色是男生版还是女生版，不影响测试分数。</p>
+        </div>
+
+        <div class="gender-grid" aria-label="选择结果人物形象">
+          <button class="gender-card" data-gender="male" type="button">
+            <span class="gender-art gender-art-male" aria-hidden="true"></span>
+            <strong>男生版人格卡</strong>
+            <span>更像村支书、巡田总监、田园策展人那类朴素又有戏的角色。</span>
+          </button>
+          <button class="gender-card" data-gender="female" type="button">
+            <span class="gender-art gender-art-female" aria-hidden="true"></span>
+            <strong>女生版人格卡</strong>
+            <span>更像认养侦探、采摘组织者、共益投资人那类生动角色。</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="quiz-section" id="quiz" hidden>
+        <header class="quiz-header">
+          <div>
+            <p class="eyebrow">Adoption Farmer Type</p>
+            <h2>认养偏好测评</h2>
+          </div>
+          <div class="counter"><span id="currentIndex">1</span>/<span id="totalCount">10</span></div>
+        </header>
+
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <article class="question-card">
+          <p class="question-kicker" id="questionKicker"></p>
+          <h3 id="questionText"></h3>
+          <div class="options-grid" id="optionsGrid"></div>
+        </article>
+
+        <footer class="quiz-nav">
+          <button class="secondary-btn" id="backBtn" type="button">上一题</button>
+          <button class="secondary-btn" id="restartBtn" type="button">重新开始</button>
+        </footer>
+      </section>
+
+      <section class="result-section" id="result" hidden>
+        <div class="result-hero">
+          <div>
+            <p class="eyebrow">Your Adoption Farmer Type</p>
+            <h2 id="resultTitle"></h2>
+            <p id="resultSubtitle"></p>
+          </div>
+          <div class="result-badge">
+            <div class="result-avatar" id="resultAvatar" aria-hidden="true"></div>
+            <div class="type-stamp" id="typeStamp">人格卡片</div>
+          </div>
+        </div>
+
+        <div class="result-layout">
+          <section class="result-panel">
+            <h3>人格画像</h3>
+            <p id="resultStory"></p>
+            <div class="axis-list" id="axisList"></div>
+          </section>
+
+          <section class="result-panel">
+            <h3>适合你的认养策略</h3>
+            <ul class="strategy-list" id="strategyList"></ul>
+          </section>
+        </div>
+
+        <section class="recommend-section">
+          <div class="section-title-row">
+            <div>
+              <p class="eyebrow">Product Match</p>
+              <h3>推荐认养产品</h3>
+            </div>
+            <span class="match-note">基于禾作计划销售品类样本</span>
+          </div>
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="share-strip">
+          <div>
+            <h3>把人格结果带回商品页</h3>
+            <p id="salesHint"></p>
+          </div>
+          <button class="primary-btn" id="againBtn" type="button">再测一次</button>
+        </section>
+      </section>
+
+      <section class="types-section" id="types" hidden>
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">Type Gallery</p>
+            <h2>8 种认养农民人格</h2>
+          </div>
+          <button class="secondary-btn" id="closeTypesBtn" type="button">回到测评</button>
+        </div>
+        <div class="types-grid" id="typesGrid"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
